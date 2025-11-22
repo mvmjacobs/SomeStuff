@@ -2,7 +2,7 @@ namespace SomeStuff.Application.Mediator.HandleR;
 
 public class HandleR : IHandleR
 {
-    public Task<THandlerResponse> HandleAsync<THandlerResponse>(ICommand<THandlerResponse> request)
+    public Task<THandlerResponse> HandleAsync<THandlerResponse>(ICommand<THandlerResponse> command)
     {
         // Needs to resolve tye type
         // Find a the handler implementation for that type
