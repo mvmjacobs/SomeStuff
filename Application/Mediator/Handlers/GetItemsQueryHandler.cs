@@ -1,8 +1,8 @@
 using MediatR;
 using SomeStuff.Application.Dtos;
-using SomeStuff.Application.Queries;
+using SomeStuff.Application.Mediator.Queries;
 
-namespace SomeStuff.Application.Handlers;
+namespace SomeStuff.Application.Mediator.Handlers;
 
 public class GetItemsQueryHandler : IRequestHandler<GetItemsQuery, IEnumerable<ItemDto>>
 {
