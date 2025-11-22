@@ -47,6 +47,12 @@ The Mediator pattern is implemented using the MediatR library. The requests (que
 -   `Application/Mediator/MediatR/Handlers/`: This directory contains the handlers for the queries and commands.
 -   `Controllers/MediatorController.cs`: A controller that uses MediatR to send requests.
 
+### Mediator Pattern (Manual Implementation - HandleR)
+
+A manual implementation of the Mediator pattern, named `HandleR`, is also included. This serves as a lightweight, custom alternative to the MediatR library.
+
+-   `Application/Mediator/HandleR/`: This directory contains the core components of the manual mediator, including the `IHandleR` interface and its implementation.
+
 ## How to Contribute
 
 Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute to this project, including the commit message format.
