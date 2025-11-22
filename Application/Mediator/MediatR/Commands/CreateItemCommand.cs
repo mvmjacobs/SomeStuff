@@ -1,6 +1,6 @@
 using MediatR;
 using SomeStuff.Application.Dtos;
 
-namespace SomeStuff.Application.Mediator.Commands;
+namespace SomeStuff.Application.Mediator.MediatR.Commands;
 
 public record CreateItemCommand(string Name) : IRequest<ItemDto>;

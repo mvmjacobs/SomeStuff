@@ -1,8 +1,8 @@
 using MediatR;
-using SomeStuff.Application.Mediator.Commands;
+using SomeStuff.Application.Mediator.MediatR.Commands;
 using SomeStuff.Application.Dtos;
 
-namespace SomeStuff.Application.Mediator.Handlers;
+namespace SomeStuff.Application.Mediator.MediatR.Handlers;
 
 public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand, ItemDto>
 {
