@@ -43,4 +43,5 @@ The Mediator pattern is implemented using the MediatR library. The requests (que
 
 ## How to Contribute
 
-When adding new features, please follow the existing structure. For example, new controllers should be added to the `Controllers` directory. If you are adding business logic, consider creating a new folder for services or use cases.
+Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute to this project, including the commit message format.
+
