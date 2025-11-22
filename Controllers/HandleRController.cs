@@ -8,13 +8,11 @@ namespace SomeStuff.Controllers;
 [Route("[controller]")]
 public class HandleRController : ControllerBase
 {
-    public HandleRController() {}
-
     [HttpPost]
     public async Task<IActionResult> CreateItem([FromBody] CreateItemCommand command, CancellationToken cancellationToken)
     {
         var handler = new HandleR();
-        var result = await handler.Handle(command);
+        var result = await handler.HandleAsync(command);
         return Ok(result);
     }
 }
