@@ -1,3 +1,3 @@
 namespace SomeStuff.Application.Mediator.HandleR;
 
-public interface IHandlerRequest;
+public interface IHandlerRequest<THandlerResponse>;
