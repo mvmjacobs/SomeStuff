@@ -42,9 +42,9 @@ The DTO pattern is used to transfer data between layers of the application. This
 
 The Mediator pattern is implemented using the MediatR library. The requests (queries and commands) and handlers are located in the `Application/Mediator` folder.
 
--   `Application/Mediator/Queries/GetItemsQuery.cs`: A query to get a list of items.
--   `Application/Mediator/Commands/CreateItemCommand.cs`: A command to create a new item.
--   `Application/Mediator/Handlers/`: This directory contains the handlers for the queries and commands.
+-   `Application/Mediator/MediatR/Queries/GetItemsQuery.cs`: A query to get a list of items.
+-   `Application/Mediator/MediatR/Commands/CreateItemCommand.cs`: A command to create a new item.
+-   `Application/Mediator/MediatR/Handlers/`: This directory contains the handlers for the queries and commands.
 -   `Controllers/MediatorController.cs`: A controller that uses MediatR to send requests.
 
 ## How to Contribute
