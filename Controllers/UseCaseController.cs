@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SomeStuff.Application.Dtos;
 using SomeStuff.Application.UseCases.CreateItem;
 using SomeStuff.Application.UseCases.GetItems;
 
@@ -27,7 +28,7 @@ public class UseCaseController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] object request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Post([FromBody] ItemDto request, CancellationToken cancellationToken)
     {
         var result = await _createItemUseCase.ExecuteAsync(request, cancellationToken);
         return Ok(result);

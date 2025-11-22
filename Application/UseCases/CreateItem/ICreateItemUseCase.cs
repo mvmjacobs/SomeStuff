@@ -1,6 +1,8 @@
+using SomeStuff.Application.Dtos;
+
 namespace SomeStuff.Application.UseCases.CreateItem;
 
 public interface ICreateItemUseCase
 {
-    Task<object> ExecuteAsync(object request, CancellationToken cancellationToken);
+    Task<ItemDto> ExecuteAsync(ItemDto request, CancellationToken cancellationToken);
 }

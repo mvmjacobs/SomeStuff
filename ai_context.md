@@ -27,7 +27,7 @@ This project will contain examples of different design patterns.
 
 ### Use Case Pattern
 
-The use case pattern is implemented in the `Application/UseCases` directory. Each use case has its own folder containing an interface and an implementation.
+The use case pattern is implemented in the `Application/UseCases` directory. Each use case has its own folder containing an interface and an implementation. This pattern now uses the `ItemDto` for data transfer.
 
 -   `Application/UseCases/GetItems`: Example of a use case to retrieve items.
 -   `Application/UseCases/CreateItem`: Example of a use case to create an item.
