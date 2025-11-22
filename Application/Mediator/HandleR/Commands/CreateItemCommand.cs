@@ -2,7 +2,4 @@ using SomeStuff.Application.Dtos;
 
 namespace SomeStuff.Application.Mediator.HandleR.Commands;
 
-public class CreateItemCommand : IHandlerRequest<ItemDto>
-{
-
-}
+public class CreateItemCommand : ICommand<ItemDto>;
