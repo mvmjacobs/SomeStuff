@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SomeStuff.Application.Commands;
-using SomeStuff.Application.Queries;
+using SomeStuff.Application.Mediator.Commands;
+using SomeStuff.Application.Mediator.Queries;
 
 namespace SomeStuff.Controllers;
 
