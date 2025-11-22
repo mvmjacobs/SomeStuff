@@ -21,6 +21,17 @@ The project follows a standard .NET Web API structure:
 -   `appsettings.json`: Configuration file.
 -   `SomeStuff.csproj`: The project file.
 
+## Design Patterns
+
+This project will contain examples of different design patterns.
+
+### Use Case Pattern
+
+The use case pattern is implemented in the `Application/UseCases` directory. Each use case has its own folder containing an interface and an implementation.
+
+-   `Application/UseCases/GetItems`: Example of a use case to retrieve items.
+-   `Application/UseCases/CreateItem`: Example of a use case to create an item.
+
 ## How to Contribute
 
 When adding new features, please follow the existing structure. For example, new controllers should be added to the `Controllers` directory. If you are adding business logic, consider creating a new folder for services or use cases.
