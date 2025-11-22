@@ -32,6 +32,12 @@ The use case pattern is implemented in the `Application/UseCases` directory. Eac
 -   `Application/UseCases/GetItems`: Example of a use case to retrieve items.
 -   `Application/UseCases/CreateItem`: Example of a use case to create an item.
 
+### DTO (Data Transfer Object) Pattern
+
+The DTO pattern is used to transfer data between layers of the application. This helps to decouple the internal domain models from the external contracts (e.g., API responses).
+
+-   `Application/Dtos/ItemDto.cs`: An example of a DTO used for item data.
+
 ### Mediator Pattern
 
 The Mediator pattern is implemented using the MediatR library. The requests (queries and commands) and handlers are located in the `Application/Mediator` folder.
