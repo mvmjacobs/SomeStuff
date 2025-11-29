@@ -1,8 +1,12 @@
+using SomeStuff.Application.Mediator.HandleR;
+using SomeStuff.Application.UseCases.CreateItem;
+using SomeStuff.Application.UseCases.GetItems;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<SomeStuff.Application.UseCases.GetItems.IGetItemsUseCase, SomeStuff.Application.UseCases.GetItems.GetItemsUseCase>();
-builder.Services.AddScoped<SomeStuff.Application.UseCases.CreateItem.ICreateItemUseCase, SomeStuff.Application.UseCases.CreateItem.CreateItemUseCase>();
+builder.Services.AddScoped<IGetItemsUseCase, GetItemsUseCase>();
+builder.Services.AddScoped<ICreateItemUseCase, CreateItemUseCase>();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
