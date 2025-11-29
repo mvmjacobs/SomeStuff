@@ -2,4 +2,4 @@ using SomeStuff.Application.Dtos;
 
 namespace SomeStuff.Application.Mediator.HandleR.Commands;
 
-public class CreateItemCommand : ICommand<ItemDto>;
+public record CreateItemCommand(string Name) : ICommand<ItemDto>;
