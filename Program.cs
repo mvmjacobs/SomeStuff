@@ -4,11 +4,33 @@ using SomeStuff.Application.UseCases.GetItems;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// DI for Use Cases
 builder.Services.AddScoped<IGetItemsUseCase, GetItemsUseCase>();
 builder.Services.AddScoped<ICreateItemUseCase, CreateItemUseCase>();
 
+// DI for MediatR
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+// DI for HandleR
+builder.Services.AddScoped<IHandleR, HandleR>();
+
+var handlerTypes = typeof(Program).Assembly
+    .GetTypes()
+    .Where(t => t
+        .GetInterfaces()
+        .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(ICommandHandler<,>))
+    );
+
+foreach (var type in handlerTypes)
+{
+    foreach (var implementedInterface in type.GetInterfaces())
+    {
+        if (implementedInterface.IsGenericType && implementedInterface.GetGenericTypeDefinition() == typeof(ICommandHandler<,>))
+        {
+            builder.Services.AddScoped(implementedInterface, type);
+        }
+    }
+}
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
