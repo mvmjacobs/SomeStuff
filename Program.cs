@@ -1,12 +1,24 @@
 using SomeStuff.Application.Mediator.HandleR;
+using SomeStuff.Application.UseCases.BookClass;
 using SomeStuff.Application.UseCases.CreateItem;
 using SomeStuff.Application.UseCases.GetItems;
+using SomeStuff.Domain.Repositories;
+using SomeStuff.Filters;
+using SomeStuff.Infrastructure.RateLimiting;
+using SomeStuff.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // DI for Use Cases
 builder.Services.AddScoped<IGetItemsUseCase, GetItemsUseCase>();
 builder.Services.AddScoped<ICreateItemUseCase, CreateItemUseCase>();
+builder.Services.AddScoped<IBookClassUseCase, BookClassUseCase>();
+
+// DI for in-memory repositories and filters
+builder.Services.AddSingleton<IClassRepository, InMemoryClassRepository>();
+builder.Services.AddSingleton<IBookingRepository, InMemoryBookingRepository>();
+builder.Services.AddSingleton<IBookingRateLimiter, InMemoryBookingRateLimiter>();
+builder.Services.AddScoped<BookingRateLimitFilter>();
 
 // DI for MediatR
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
