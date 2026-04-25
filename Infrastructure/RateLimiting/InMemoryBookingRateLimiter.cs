@@ -2,22 +2,14 @@ using System.Collections.Concurrent;
 
 namespace SomeStuff.Infrastructure.RateLimiting;
 
-public sealed class InMemoryBookingRateLimiter : IBookingRateLimiter
+public sealed class InMemoryBookingRateLimiter(Func<DateTime> clock) : IBookingRateLimiter
 {
     private const int MaxRequestsPerWindow = 5;
-    private static readonly TimeSpan Window = TimeSpan.FromMinutes(1);
+    private static readonly TimeSpan Window = TimeSpan.FromSeconds(10);
     private readonly ConcurrentDictionary<string, ConcurrentQueue<DateTime>> _requests = new();
-    private readonly Func<DateTime> _clock;
+    private readonly Func<DateTime> _clock = clock;
 
-    public InMemoryBookingRateLimiter()
-        : this(() => DateTime.UtcNow)
-    {
-    }
-
-    public InMemoryBookingRateLimiter(Func<DateTime> clock)
-    {
-        _clock = clock;
-    }
+    public InMemoryBookingRateLimiter() : this(() => DateTime.UtcNow) { }
 
     public BookingRateLimitResult TryAcquire(string? userId, string? ipAddress)
     {
