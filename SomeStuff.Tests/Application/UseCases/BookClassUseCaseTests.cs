@@ -26,7 +26,6 @@ public sealed class BookClassUseCaseTests
 
         Assert.Equal(BookClassStatus.Success, result.Status);
         Assert.NotNull(result.Booking);
-        Assert.True(result.Booking!.WasCreated);
         Assert.Equal(1, classRepository.FindById(classId)!.EnrolledCount);
     }
 
@@ -51,9 +50,7 @@ public sealed class BookClassUseCaseTests
 
         Assert.Equal(BookClassStatus.Success, firstResult.Status);
         Assert.Equal(BookClassStatus.AlreadyBooked, secondResult.Status);
-        Assert.NotNull(secondResult.Booking);
-        Assert.False(secondResult.Booking!.WasCreated);
-        Assert.Equal(firstResult.Booking!.BookingId, secondResult.Booking.BookingId);
+        Assert.Null(secondResult.Booking);
         Assert.Equal(1, classRepository.FindById(classId)!.EnrolledCount);
     }
 

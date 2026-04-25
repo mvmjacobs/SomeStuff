@@ -28,7 +28,7 @@ public sealed class PollyCircuitBreaker(TimeProvider timeProvider) : ICircuitBre
             {
                 FailureRatio = 0.5,
                 SamplingDuration = TimeSpan.FromSeconds(30),
-                MinimumThroughput = 3,
+                MinimumThroughput = 10,
                 BreakDuration = TimeSpan.FromSeconds(30),
             })
             .Build();

@@ -32,9 +32,7 @@ public sealed class BookClassUseCase(IClassRepository classRepository, IBookingR
             var existingBooking = _bookingRepository.FindByClassAndUser(classGuid, userGuid);
             if (existingBooking is not null)
             {
-                return new BookClassResult(
-                    BookClassStatus.AlreadyBooked,
-                    MapBooking(existingBooking, wasCreated: false));
+                return new BookClassResult(BookClassStatus.AlreadyBooked);
             }
 
             if (!classEntity.HasCapacity())
@@ -55,10 +53,7 @@ public sealed class BookClassUseCase(IClassRepository classRepository, IBookingR
 
             return new BookClassResult(
                 BookClassStatus.Success,
-                MapBooking(booking, wasCreated: true));
+                new BookingResponseDto(booking.Id, booking.ClassId, booking.UserId, booking.Timestamp));
         });
     }
-
-    private static BookingResponseDto MapBooking(BookingEntity booking, bool wasCreated)
-        => new(booking.Id, booking.ClassId, booking.UserId, booking.Timestamp, wasCreated);
 }

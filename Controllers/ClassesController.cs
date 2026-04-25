@@ -20,7 +20,7 @@ public sealed class ClassesController(IBookClassUseCase bookClassUseCase) : Cont
         return result.Status switch
         {
             BookClassStatus.Success => StatusCode(StatusCodes.Status201Created, result.Booking),
-            BookClassStatus.AlreadyBooked => Ok(result.Booking),
+            BookClassStatus.AlreadyBooked => BadRequest("User already booked this class."),
             BookClassStatus.ClassNotFound => NotFound(),
             BookClassStatus.ClassFull => Conflict("Class is already full."),
             BookClassStatus.InvalidClassId => BadRequest("Invalid classId."),
